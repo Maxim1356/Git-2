@@ -6,7 +6,7 @@ import pygame
 class Hero(pygame.sprite.Sprite):
     def __init__(self, app, pos):
         super().__init__(app.all_sprites, app.player_group)
-        self.image = app.load_image("mar.png")
+        self.image = app.load_image("pacman.png")
         self.rect = self.image.get_rect()
         self.app = app
         # вычисляем маску для эффективного сравнения
@@ -43,8 +43,8 @@ class Tile(pygame.sprite.Sprite):
     def __init__(self, app, tile_type, pos_x, pos_y):
         super().__init__(app.all_sprites)
         tile_images = {
-            'wall': app.load_image('box.png'),
-            'empty': app.load_image('grass.png')
+            'wall': app.load_image('wall.png'),
+            'empty': app.load_image('fon.png')
         }
 
         self.image = tile_images[tile_type]
@@ -120,7 +120,7 @@ class App:
                       "Если в правилах несколько строк,",
                       "приходится выводить их построчно"]
 
-        fon = pygame.transform.scale(self.load_image('fon.jpg'), (self.width, self.height))
+        fon = pygame.transform.scale(self.load_image('start.jpg'), (self.width, self.height))
         self.screen.blit(fon, (0, 0))
         font = pygame.font.Font(None, 30)
         text_coord = 50
